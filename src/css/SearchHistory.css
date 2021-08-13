@@ -1,0 +1,20 @@
+ul.searches li {
+  display: inline-block;
+  margin: 10px;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.search-item{
+  cursor: pointer;
+  color: blue;
+}
+
+.search-item:hover{
+  text-decoration: underline;
+}
+
+.searches {
+  width: 100%;
+  padding: 10px;
+}

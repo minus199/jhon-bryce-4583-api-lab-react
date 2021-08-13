@@ -1,0 +1,12 @@
+.main-toolbar{
+  border: 1px solid black;
+  box-shadow: 0 0px 8px 0px #0000003d;
+}
+
+header.main-toolbar * {
+  margin: 10px;
+}
+
+.indicator-hidden{
+  display: none;
+}

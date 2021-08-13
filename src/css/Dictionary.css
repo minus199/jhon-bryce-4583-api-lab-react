@@ -1,0 +1,68 @@
+#dict-container {
+  display: inline-block;
+  width: 100%;
+}
+  
+.dictionary-entry {
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+}
+
+.dict-sorted-list  {
+  max-height: 100px;
+  width: fit-content;
+  min-width: 25%;
+  overflow: auto;
+}
+
+.definition-container {
+  /* border: 1px solid black; */
+  margin: 10px;
+  padding: 10px;
+}
+
+.definition::before {
+  content: "Definition: ";
+  font-weight: bold;
+}
+
+.definition {
+  margin-right: 64px;
+}
+
+.example{
+  font-style: oblique;
+}
+
+.origin::before{
+  content: "Origin: ";
+  font-weight: bold;
+}
+
+.example::before {
+  content: "Example: ";
+  font-weight: bold;
+}
+
+ul.synonyms::before {
+  content: "Synonyms";
+  margin-left: -40px;
+  font-weight: bold;
+}
+
+ul.antonyms::before {
+  content: "Antonyms";
+  margin-left: -40px;
+  font-weight: bold;
+}
+
+audio{
+  transform: scale(0.5);
+  filter: drop-shadow(2px 3px 3px #333);
+}
+
+.word, .part-of-speech{
+  margin-right: 10px;
+  font-weight: bold;
+}
