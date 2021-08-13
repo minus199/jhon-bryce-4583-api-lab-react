@@ -11,8 +11,6 @@
 
 .dict-sorted-list  {
   max-height: 100px;
-  width: fit-content;
-  min-width: 25%;
   overflow: auto;
 }
 
