@@ -54,14 +54,14 @@ function App() {
         alert(reason.message);
       } finally {
         setIsSearching(false)
-        addToLastSearch(word);
+        addToSearchHistory(word);
       }
     }
   */
 
-  useEffect(() => {
+  useEffect(() => { // this effect handles the concern of fetching the recent searches when the page loads
     fetchRecentSearches().then(searches => setSearchHistory(searches))
-   }, []);
+  }, []);
 
   useEffect(() => { // this effect handles the concern of fetching the languages when the page loads
     fetchLangs()
@@ -74,11 +74,13 @@ function App() {
 
   return (
     <div className="app">
-      <Dictionary>
-        <Toolbar langs={langs} search={() => search(searchTerm)}
+      {/* the toolbar is for the entire app, thats why its not inside Dictionary */}
+      <Toolbar langs={langs} search={() => search(searchTerm)}
           currentLang={currentLang} setLang={(e) => setCurrentLang(e.target.value)}
           isSearching={isSearching} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
+      <Dictionary>
+        {/* example of using props.children */}
         <SearchHistory data={searchHistory} search={search} />
 
         <DictionaryEntryList data={dictionaryContent} />

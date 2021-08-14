@@ -2,7 +2,7 @@ import { ChangeEvent } from 'react';
 import '../css/Toolbar.css'
 import { LanguagesResponse } from '../data/api-response';
 
-// isn't it nicer to know which props excatly we need to pass?
+// isn't it nicer to know which props exactly we need to pass?
 interface ToolbarProps {
     search: () => void
     langs: LanguagesResponse,
@@ -18,8 +18,8 @@ export default function Toolbar(props: ToolbarProps) {
     const { search, langs, isSearching, searchTerm, setSearchTerm, currentLang, setLang } = props;
 
     return <header className="main-toolbar">
-        {/* controlled component */}
         <div className="search-controls">
+            {/* controlled component */}
             <input type="search" id="search" name="search" placeholder="Search a word's definition"
                 value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
 

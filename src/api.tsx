@@ -1,9 +1,11 @@
 import RecentSearch from "./data/RecentSearch";
 
-export const baseURL = "http://localhost:8899/api/v2" // todo: It's good practice to store the start of the api url in a variable so we can change it easily later on(no hard coding!)
+// this file contains everything we need to communicate with server
+
+export const baseURL = "http://localhost:8899/api/v2" // It's good practice to store the start of the api url in a variable so we can change it easily later on(no hard coding!)
 
 // mock data - imagine we loaded it with the dates from local storage or the server.
-export const fetchRecentSearches = async () => ["file", "disc", "act", "run", "object"]
+export const fetchRecentSearches = async () => ["learn", "person", "disc", "act", "run", "object"]
     .map(s => new RecentSearch(s, new Date()));
 
 export const fetchLangs = () => fetch(`${baseURL}/langs`)
