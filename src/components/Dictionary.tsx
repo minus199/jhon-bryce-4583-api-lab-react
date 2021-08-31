@@ -1,6 +1,8 @@
 import '../css/Dictionary.css';
 import { DictionaryResponse } from "../data/api-response";
-import {  Meanings, Origin, Phonetics, Word } from "./dict-entry-content";
+import RecentSearch from '../data/RecentSearch';
+import { Meanings, Origin, Phonetics, Word } from "./dict-entry-content";
+import SearchHistory from './SearchHistory';
 
 interface DictionryEntryProps {
     index: number
@@ -28,8 +30,16 @@ export function DictionaryEntryList(props: { data: DictionaryResponse[] }) {
     </div>
 }
 
-export default function Dictionary(props: any) {
+interface DictionaryProps{
+    searchHistory: RecentSearch[],
+    search: (word: string) => void,
+    dictionaryContent: DictionaryResponse[]
+}
+
+export default function Dictionary(props: DictionaryProps) {
     return <div id="dict-container">
-        {props.children}
+        <SearchHistory data={props.searchHistory} search={props.search} />
+
+        <DictionaryEntryList data={props.dictionaryContent} />
     </div>;
 }

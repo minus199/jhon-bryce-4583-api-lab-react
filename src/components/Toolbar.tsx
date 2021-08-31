@@ -29,9 +29,9 @@ export default function Toolbar(props: ToolbarProps) {
             </select>
 
             {/* todo: notice how we toggle the className to show the user if there's an ongoing search */}
-            <span id="is-searching" className={isSearching ? "" : "indicator-hidden"}>Searching...</span>
-
-            {isSearching ? null : <button onClick={search}>Go!</button>}
+            {isSearching
+                ? <span id="is-searching">Searching...</span>
+                : <button onClick={search}>Go!</button>}
         </div>
     </header>;
 }

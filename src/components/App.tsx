@@ -1,4 +1,5 @@
 import '../css/App.css';
+import Circle from '../circle.svg'
 import { useEffect, useState } from 'react';
 import SearchHistory from './SearchHistory';
 import Dictionary, { DictionaryEntryList } from './Dictionary';
@@ -7,6 +8,7 @@ import Toolbar from './Toolbar';
 import { searchWordInDictionary, fetchLangs, fetchRecentSearches } from '../api';
 import { DictionaryResponse, LanguagesResponse } from '../data/api-response';
 import RecentSearch from "../data/RecentSearch";
+
 
 function App() {
   // we only set the state here
@@ -74,17 +76,18 @@ function App() {
 
   return (
     <div className="app">
+      {/* <img src="/images/circle.svg" width="50px"/> */}
+      <h1>
+        <img src={Circle} alt="React Logo" /> Archive
+      </h1>
+
+
       {/* the toolbar is for the entire app, thats why its not inside Dictionary */}
       <Toolbar langs={langs} search={() => search(searchTerm)}
-          currentLang={currentLang} setLang={(e) => setCurrentLang(e.target.value)}
-          isSearching={isSearching} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        currentLang={currentLang} setLang={(e) => setCurrentLang(e.target.value)}
+        isSearching={isSearching} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-      <Dictionary>
-        {/* example of using props.children */}
-        <SearchHistory data={searchHistory} search={search} />
-
-        <DictionaryEntryList data={dictionaryContent} />
-      </Dictionary>
+      <Dictionary dictionaryContent={dictionaryContent} search={search} searchHistory={searchHistory}/>
     </div>
   );
 }
